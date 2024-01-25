@@ -89,8 +89,12 @@ class Animal {
         this.canSwim = canSwim;
         this.canFly = canFly;
     }
+    meow(){
+        console.log("meow");
+    }
 }
 
 const cat = new Animal("Persian Cat", 4, true, false);
 
 console.log(cat);
+cat.meow();
