@@ -33,6 +33,7 @@ body {
     cursor: pointer;
 }
 
-#signup-form input[type="submit"]:hover {
+#signup-form input[type="submit"]:hover,
+#signup-form input[type="reset"]:hover {
     background-color: #333333;
 }

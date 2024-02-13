@@ -42,7 +42,13 @@ $(document).ready(function () {
                     <p>Thank You, <strong>${name}</strong>!</p>
                     <p>You registration for the show on <strong>${date.toUpperCase()}</strong> is confirmed.</p>
                     <p>A confirmation email has been sent to: <strong>${email}</strong>
-                `).slideDown();    
+                `).slideDown();
+
+                // Fade out the confirmation message after 5 seconds
+                setTimeout(function(){
+                    $('#confirmation-message').fadeOut();
+                }, 5000)
+
             })
 
             $('#signup-form').find("input[type=text], input[type=email], select").val("");
@@ -81,6 +87,24 @@ $(document).ready(function () {
             200
         );
     });
+
+    // Reset button animation
+    $("#signup-form input[type=reset]").hover(function () {
+        $(this).animate(
+            {
+                backgroundColor: jQuery.Color("#333333")
+            },
+            200
+        );
+    },
+    function () {
+        $(this).animate(
+            {
+                backgroundColor: jQuery.Color("#5c5c5c")
+            }, 
+            200
+        );
+    });
 });
 
 
@@ -90,4 +114,11 @@ $(document).ready(function () {
 
 $('#signup-form').submit(function(event){
     event.preventDefault();
+})
+
+
+// when pressing reset if present will fade out the confirmation if present
+
+document.querySelector('#signup-form').addEventListener("reset", function(event){
+    $('#confirmation-message').fadeOut();
 })
