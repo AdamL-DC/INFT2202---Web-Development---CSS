@@ -13,6 +13,7 @@ $(document).ready(function () {
     });
     navContent += "</ul>";
     $("#navbar").html(navContent);
+    populateCarousel(category.toLowerCase());
 });
 
 window.loadCategoryContent = function (category) {
@@ -23,6 +24,63 @@ window.loadCategoryContent = function (category) {
     $("#content").html(content);
 
     // Create a function to populate our Carousel
-    // Create a function to populate our image gallery
+    // Create image gallery in memory
 
 };
+
+const categoryImages = {
+    beaches: [
+        {alt: "Beach Sunset", src:"beach1.jpg"},
+        {alt: "Sandy Shore", src:"beach2.jpg"},
+        {alt: "Marina Resort", src:"beach3.jpg"},
+    ],
+    mountains: [
+        {alt: "Mountain Range", src:"mountain1.jpg"},
+        {alt: "Snowy Peak", src:"mountain2.jpg"},
+        {alt: "Hiking Trail", src:"mountain3.jpg"},
+    ],
+};
+
+// category == beaches
+function populateCarousel(category){
+    const images = categoryImages[category]
+
+    // [].forEach(), [].map() -> 2 Array Iterator Method
+    let carouselContent = images.map((image, index) => {
+        return `<div class="carousel-item ${index = 0 ? "active" : ""}
+        <div class="image" style="background-image: url('${image.src}')">
+        </div>
+        <p>${image.alt}</p>
+        </div>
+        `;
+    }).join("");
+
+    $(`#${category}-carousel`).html(carouselContent);
+
+    $(`#${category}-carousel`).append(`
+        <button class="carousel-control prev" onclick="moveCarousel('${category}', -1)">&lt;</button>
+        <button class="carousel-control prev" onclick="moveCarousel('${category}', 1)">&gt;</button>
+    `);
+}
+
+
+window.moveCarousel = function (category, direction) {
+    debugger;
+    let items = $(`#${carousel}-carousel.carousel-item`)
+
+    let activeIndex = items.index(items.filler(".active"))
+    
+    let newIndex = activeIndex + direction
+
+    if (newIndex >= - items.length) {
+        newIndex = 0;
+    } else if (newIndex < 0) {
+        newIndex = items.length -1
+    }
+
+    items.removeClass("active");
+
+    items.eq(newIndex).addClass("active");
+
+
+}
