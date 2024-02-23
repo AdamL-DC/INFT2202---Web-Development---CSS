@@ -2,6 +2,7 @@
 // Student ID: 100903015
 // Date Completed: 2024-02-22
 
+//Loads when any page is opened
 $(document).ready(function () {
     console.log("DOM is ready to be manipulated")
 
@@ -48,12 +49,6 @@ $(document).ready(function () {
         //variable used for validation
         let isValid = true;
 
-        console.log(firstName);
-        console.log(lastName);
-        console.log(email);
-        console.log(password);
-        console.log(confirmPassword);
-
 
         //check first name is longer than 2 chars
         if (firstName.length < 2){
@@ -69,12 +64,40 @@ $(document).ready(function () {
             $('#ErrorMessage').show();
         }
 
-        //check last name is longer than 2 chars
+        //check email is longer than 8 chars
         if (email.length < 8){
             isValid = false;
             $('#ErrorMessage').append("<p>Please ensure email address is longer than 8 characters!</p>");
             $('#ErrorMessage').show();
         }
+
+        //checks email includes @ symbol if someone gets past html restriction
+        if (email.includes("@") == false){
+            isValid = false;
+            $('#ErrorMessage').append("<p>Please ensure email address is valid and contains an @!</p>");
+            $('#ErrorMessage').show();
+        }
+
+        //checks if passwords are empty
+        if(password.length < 6){
+            isValid = false;
+            $('#ErrorMessage').append("<p>Please ensure password is longer than 8 characters!</p>");
+            $('#ErrorMessage').show();
+        }
+
+        //checks if passwords match
+        if(password != confirmPassword){
+            isValid = false;
+            $('#ErrorMessage').append("<p>Please ensure both passwords are matching!</p>");
+            $('#ErrorMessage').show();
+        }
+
+        if(isValid == true){
+
+        }
+
+
+
     })
 
 
