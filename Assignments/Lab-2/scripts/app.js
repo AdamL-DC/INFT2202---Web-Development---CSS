@@ -4,9 +4,7 @@
 
 //Loads when any page is opened
 $(document).ready(function () {
-    console.log("DOM is ready to be manipulated")
-
-
+    
     // login form control
     $('#loginForm').submit(function(event){
         //prevents default refresh on submit
@@ -92,21 +90,28 @@ $(document).ready(function () {
             $('#ErrorMessage').show();
         }
 
+        //if all checks are passed, creates new user object and outputs to console
         if(isValid == true){
-
+            const registeredUser = new User(firstName, lastName, email, password, confirmPassword);
+            console.log(registeredUser);
         }
-
-
 
     })
 
-
-
-
-
-
-
 });
+
+
+// User class used during registration
+class User {
+    constructor(firstName, lastName, email, password, confirmPassword) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
+    }
+}
+
 
 // Page contents
 
