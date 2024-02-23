@@ -45,6 +45,25 @@ body {
     height: 400px;
 }
 
-#loginForm{
+#loginForm, #registerForm{
     width: 400px;
+}
+
+#NameForms{
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5px;
+    width: auto;
+}
+
+#firstName, #lastName{
+    width: 200px;
+}
+
+#ErrorMessage{
+    width: auto;
+    height: auto;
+    background-color: rgba(255, 0, 0, 0.541);
+    border-radius: 10px;
 }

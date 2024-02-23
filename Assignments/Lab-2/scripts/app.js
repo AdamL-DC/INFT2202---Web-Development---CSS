@@ -1,6 +1,89 @@
 // Name: Adam Lamoureux
 // Student ID: 100903015
-// Date Completed: 2024-02-06 (srry it's late had nightmare weekend)
+// Date Completed: 2024-02-22
+
+$(document).ready(function () {
+    console.log("DOM is ready to be manipulated")
+
+
+    // login form control
+    $('#loginForm').submit(function(event){
+        //prevents default refresh on submit
+        event.preventDefault();
+
+        //gets the inputted contents of the form
+        let username = $('#Username').val().trim();
+        let password = $('#Password').val().trim();
+
+        //creates nav elements with user's username and gets the loginLink element to be re appended
+        let $nameDisplay = $( '<li class="nav-item"> <a class="nav-link active" aria-current="page">' + username + '</a></li>'),
+        loginLink = document.getElementById( "loginLink" );
+
+        // appends the new nav elements onto the navigation bar
+        $('.navbar-nav').append( $nameDisplay, loginLink);
+    })
+
+
+    //creates error message div and hides on loading the page
+
+    $("#registerForm").prepend('<div id="ErrorMessage"></div>');
+    $("#ErrorMessage").hide();
+
+    //register form control
+    $('#registerForm').submit(function(event){
+        //prevents default refresh on submit
+        event.preventDefault();
+
+        $('#ErrorMessage').html("");
+        $('#ErrorMessage').html("<p><strong>ERROR/S:</strong></p>");
+        $("#ErrorMessage").hide();
+
+        //gets the inputted contents of the form
+        let firstName = $('#firstName').val().trim();
+        let lastName = $('#lastName').val().trim();
+        let email = $('#Email').val().trim();
+        let password = $('#Password').val().trim();
+        let confirmPassword = $('#repeatPassword').val().trim();
+
+        //variable used for validation
+        let isValid = true;
+
+        console.log(firstName);
+        console.log(lastName);
+        console.log(email);
+        console.log(password);
+        console.log(confirmPassword);
+
+
+        //check first name is longer than 2 chars
+        if (firstName.length < 2){
+            isValid = false;
+            $('#ErrorMessage').append("<p>Please ensure first name is longer than 2 characters!</p>");
+            $('#ErrorMessage').show();
+        }
+
+        //check last name is longer than 2 chars
+        if (lastName.length < 2){
+            isValid = false;
+            $('#ErrorMessage').append("<p>Please ensure last name is longer than 2 characters!</p>");
+            $('#ErrorMessage').show();
+        }
+
+        //check last name is longer than 2 chars
+        if (email.length < 8){
+            isValid = false;
+            $('#ErrorMessage').append("<p>Please ensure email address is longer than 8 characters!</p>");
+            $('#ErrorMessage').show();
+        }
+    })
+
+
+
+
+
+
+
+});
 
 // Page contents
 
@@ -137,8 +220,8 @@ similar systems to those designed in my courses for some personal game developme
 
 
 populateServices();
-populateProducts();
-populateHome();
+//populateProducts();
+//populateHome();
 
 
 function populateServices(){
@@ -147,14 +230,14 @@ function populateServices(){
     const databaseDeveloper = document.querySelector("#databaseDeveloper").innerHTML = databaseDeveloperContent;
 }
 
-function populateProducts(){
+//function populateProducts(){
 // Populate the products page
-const evangelion = document.querySelector("#evangelion").innerHTML = evangelionContent;
-const productsContext = document.querySelector("#productsContext").innerHTML = productsContextContent;
-const theGentlemen = document.querySelector("#theGentlemen").innerHTML = theGentlemenContent;
-const maniac = document.querySelector("#maniac").innerHTML = maniacContent;
-}
+//const evangelion = document.querySelector("#evangelion").innerHTML = evangelionContent;
+//const productsContext = document.querySelector("#productsContext").innerHTML = productsContextContent;
+//const theGentlemen = document.querySelector("#theGentlemen").innerHTML = theGentlemenContent;
+//const maniac = document.querySelector("#maniac").innerHTML = maniacContent;
+//}
 
-function populateHome(){
-const Welcome = document.querySelector("#welcomeMessage").innerHTML = welcomeContent;
-}
+//function populateHome(){
+//const Welcome = document.querySelector("#welcomeMessage").innerHTML = welcomeContent;
+//}
