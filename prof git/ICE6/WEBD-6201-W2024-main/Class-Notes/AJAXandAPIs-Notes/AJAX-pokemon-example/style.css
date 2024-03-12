@@ -1,0 +1,14 @@
+li {
+    list-style-type: none;
+    align-items: center;
+}
+form input{
+    width: 200px;
+}
+
+#pokemonCard {
+    width: 280px;
+    height: 380px;
+    background-image: url("./Images/NormalBlank.png");
+    align-items: center;
+}
