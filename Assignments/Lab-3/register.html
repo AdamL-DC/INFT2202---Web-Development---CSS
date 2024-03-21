@@ -1,0 +1,96 @@
+<!--
+    Name: Adam Lamoureux
+    Student Id: 100903015
+    Date Completed: 2024-02-22
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css">
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="./scripts/app.js"></script>
+    <title>Register</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">Adam L</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./product.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./about.html">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h2>Register:</h2>
+
+    <form id="registerForm">
+        <div class="form-group" id="NameForms">
+            <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
+
+            <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <input type="email" class="form-control" id="Email" placeholder="Enter email">
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <input type="password" class="form-control" id="Password" placeholder="Enter password">
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <input type="password" class="form-control" id="repeatPassword" placeholder="Repeat password">
+        </div>
+
+        <br>
+
+        <button type="submit" class="btn btn-primary">Register</button>
+
+      </form>
+      
+      <small>Aleady have an account? <a href="./login.html">Click Here</a></small>
+
+
+</body>
+</html>
