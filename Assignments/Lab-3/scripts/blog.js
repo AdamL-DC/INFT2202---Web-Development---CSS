@@ -14,7 +14,7 @@ $(document).ready(function () {
     imagexhr.open("GET", "https://pixabay.com/api/?key=43068652-0c9db30ebdb5c73816d28816b&q=cats&image_type=photo");
 
 /**
- * Check API response, parse response, and add images.
+ * When request is loaded, adds images to image array to be added with blog posts
  * 
  */
     imagexhr.onload = function() {
@@ -32,7 +32,7 @@ $(document).ready(function () {
     };
 
     /**
-     * Check API response, parse response, display blog posts, and add images.
+     * When request is loaded processes and adds images then adds blog posts
      */
     blogxhr.onload = function() {
         //check if API has responded
