@@ -1,19 +1,28 @@
+// Name: Adam Lamoureux
+// Student ID: 100903015
+// Date Completed: 2024-03-25
+
+
 $(document).ready(function () {
-    // We want to create a new XMLHTTPRequest Object to grab the Pokemon API Data
+    // We want to create a new XMLHTTPRequest Object to grab the blog post data
 
     var xhr = new XMLHttpRequest();
 
-    // The line below will create a GET HTTP Request to the pokemon API via the URL
-    // The call below is ASYNCHRONOUS
+    // ASYNCHRONOUS call to the api to get the blog posts
     xhr.open("GET", "https://jsonplaceholder.typicode.com/posts");
 
 
     xhr.onload = function() {
+        //check if API has responded
         console.log("API has responded!");
         
+        //parse API response
         var response = JSON.parse(this.responseText);
-        console.log(response);
+
+        //display blog posts
         var blogPosts = "";
+
+        //loop through each blog post and create html blog post elements
         response.forEach(post => {
             blogPosts += `
             <div class="card" style="width: 18rem;">
@@ -27,8 +36,10 @@ $(document).ready(function () {
             
             `;
         });
+        //add blog posts to blog posts div
         document.getElementById("blogPosts").innerHTML = blogPosts;
     };
 
+    
     xhr.send();
 });

@@ -73,7 +73,9 @@ body {
 }
 
 #blogPosts {
-    width: ;
-    display:inline-flex;
+    width: auto;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     
 }
