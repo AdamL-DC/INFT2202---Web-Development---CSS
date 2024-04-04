@@ -4,9 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon</title>
+    <style>
+        body {
+            border: 2px solid red;
+        }
+        div {
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+    <div>
     <a href="/">Go Back</a>
-    <img src="<%= pokemon.sprites.front_default %>" />
+    <p>ID:: <%= pokemon.id %></p>
+    <p>Name: <%= pokemon.name %></p>
+    <p>Height: <%= pokemon.height %></p>
+    <img height="200px" width="auto" src="<%= pokemon.sprites.front_default %>" />
+    <form action="" method="POST">
+        <input type="hidden" value="<%= pokemon.id %>" >
+        <input type="submit" value="Add to Collection" />
+    </form>
+    </div>
 </body>
 </html>
