@@ -1,8 +1,13 @@
 const express = require("express");
 const pokemonRouter = require("./routes/pokemon");
 const bodyParser = require("body-parser");
+const DBconfig = require("./config/database");
+
 
 const app = express();
+
+// Connect to Database
+DBconfig.connectToDatabase();
 
 app.set("views", "./views"); // Create the views folder
 
