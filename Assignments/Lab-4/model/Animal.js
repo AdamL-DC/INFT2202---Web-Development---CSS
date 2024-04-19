@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
+// schema for animals in the database
 const animalSchema = new mongoose.Schema({
-    // mongoDB adds its own Unique ID to each record
     zoo: {type: String, required: true},
     scientificName: {type: String, required: true},
     commonName: {type: String, required: true},

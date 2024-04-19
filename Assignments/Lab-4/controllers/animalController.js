@@ -8,11 +8,13 @@ function displayHomePage(req, res) {
     res.render("layouts/main.ejs", { title: "Home" });
 }
 
+// Renders the entry form from the view
 function displayEntryForm(req, res) {
     // Display the Home Page
     res.render("animals/entry-form.ejs", { title: "Entry Form" });
 }
 
+// tries to retrieve all animals currently in the database
 async function getAllAnimals(req, res) {
     try {
       const myCollection = await Animal.find({});
@@ -23,6 +25,7 @@ async function getAllAnimals(req, res) {
     }
 }
 
+// removes selected animal from database based on id
 async function deleteAnimalById(req, res) {
     try {
       const animalId = req.params.idOfAnimal;
@@ -34,22 +37,26 @@ async function deleteAnimalById(req, res) {
     }
 }
 
+
+
+// pulls the selected animal's information to be edited in the edit form
 async function displayEditForm(req, res) {
     try {
       const animalId = req.params.idOfAnimal;
-      await Animal.findOne({ _id: animalId });
-      res.render("/animals/edit-animals.ejs", { title: "Edit Form" });
+      var animal = await Animal.findOne({ _id: animalId });
+      res.render("/animals/edit-animals.ejs", { title: "Edit Form", data: animal });
     } catch (err) {
       console.err("Error with getting saved collection");
       res.status(500).send("Error in getting saved collection");
     }
 }
 
+// creates a new animal in the database    - form data isn't being passed through the req for some reason
 async function AddAnimalToDatabase(req, res) {
     // Grab the form data
     const formData = req.body;
-    console.log(formData);
-    // Create a new pokemon in our database
+    console.log(formData); //form data is undefined?
+    // Create a new animal in our database
     try {
       await Animal.create({
         zoo: formData.zoo,
@@ -67,7 +74,7 @@ async function AddAnimalToDatabase(req, res) {
     res.redirect("/"); // redirect user back to slash route upon completion
 }
 
-
+// exports all functions
 module.exports = {
     displayHomePage,
     displayEntryForm,

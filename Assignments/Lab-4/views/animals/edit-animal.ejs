@@ -13,8 +13,11 @@
 		<title><%= title %></title>
 	</head>
 	<body>
+        <!-- Include the navbar -->
 		<%- include('../partials/_navbar.ejs') %>
 
+
+        <!-- Form toEdit Animal -->
 		<div class='container'>
 
             <h2>Add an Animal to the Database</h1>
@@ -22,16 +25,16 @@
 			<form action="/animals" method="POST">
                 
                 <label>Home zoo</label> <br>
-                <input name="zoo" type="text" value="" required> <br>
+                <input name="zoo" type="text" value="animal.zoo" required> <br>
 
                 <label>Scientific name</label> <br>
-                <input name="scientificName" type="text" required> <br>
+                <input name="scientificName" type="text" value="animal.scientificName" required> <br>
 
                 <label>Common name</label> <br>
-                <input name="commonName" type="text" required> <br>
+                <input name="commonName" type="text" value="animal.commonName"required> <br>
 
                 <label>Given name</label> <br>  
-                <input name="givenName" type="text" required> <br>
+                <input name="givenName" type="text" value="animal.givenName" required> <br>
 
                 <label>Gender</label> <br>
                 <input name="gender" type="radio" id= "male" value="male" required> 
@@ -41,15 +44,15 @@
                 <br>
 
                 <label>Date of birth</label> <br>
-                <input name="dateOfBirth" type="date" required> <br>
+                <input name="dateOfBirth" type="date" value="animal.dateOfBirth" required> <br>
 
                 <label>Age</label> <br>
-                <input name="age" type="number" required> <br>
+                <input name="age" type="number" value="animal.age" required> <br>
 
                 <label>Transportable?</label> <br>
-                <input name="Transportable" type="radio" id="Available" value="available" required> 
+                <input name="Transportable" type="radio" id="Available" value="true" required> 
                 <label for="Available">Available</label>
-                <input name="Transportable" type="radio" id="Unavailabe" value="unavailabe" required>
+                <input name="Transportable" type="radio" id="Unavailabe" value="false" required>
                 <label for="Unavailabe">Unavailabe</label>
                 <br>
 

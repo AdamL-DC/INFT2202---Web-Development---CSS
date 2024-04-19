@@ -12,10 +12,10 @@ router.get("/entry-form", animalController.displayEntryForm);
 router.get("/all-animals", animalController.getAllAnimals);
 
 //router to edit form
-router.get("/edit-animal/:idOfAnimal", animalController.displayEditForm);
+router.post("/edit-animal/:AnimalId", animalController.displayEditForm);
 
 //router to delete
-router.post("/deleteAnimal/:idOfAnimal", animalController.deleteAnimalById);
+router.post("/deleteAnimal/:AnimalId", animalController.deleteAnimalById);
 
 router.post("/addAnimal", animalController.AddAnimalToDatabase);
 

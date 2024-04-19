@@ -14,9 +14,11 @@
 	</head>
 	<body>
 
-
+    <!-- displays the navbar -->
     <%- include('../partials/_navbar.ejs') %>
 
+
+    <!-- loops through each animal returned from the database and displays for the user-->
     <ul>
     <% myCollection.forEach(Animal => { %>
 
@@ -31,9 +33,16 @@
     <h2><strong>Is Transportable:</strong> <%= Animal.isTransportable %></h2> <br>
 
 
-    
-    <form action="/deleteAnimal/<%= Animal._id %>" method="POST">
-    <input type="submit" value="Delete Pokemon">
+    <!-- button used to delete the selected animal from the database-->
+    <form action="/deleteAnimal" method="POST">
+    <input type="hidden" name="idOfAnimal" value="<%= Animal._id %>">
+    <input type="submit" value="Delete Animal">
+    </form>
+
+    <!-- button used to edit the selected animal-->
+    <form action="/editAnimal" method="POST">
+    <input type="hidden" name="idOfAnimal" value="<%= Animal._id %>">
+    <input type="submit" value="Edit Animal">
     </form>
 <li>
 
