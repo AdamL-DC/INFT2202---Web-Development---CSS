@@ -62,7 +62,7 @@ async function AddAnimalToDatabase(req, res) {
         isTransportable: formData.isTransportable
       });
     } catch (err) {
-      console.log(`Error in creating Animal ${formData.commonName}`);
+      console.log(`Error in creating Animal`);
     }
     res.redirect("/"); // redirect user back to slash route upon completion
 }
